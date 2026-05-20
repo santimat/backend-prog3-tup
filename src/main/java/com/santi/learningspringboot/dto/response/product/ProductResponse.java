@@ -1,46 +1,30 @@
-package com.santi.learningspringboot.model.product;
+package com.santi.learningspringboot.dto.response.product;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
-@Entity
-@Table(name = "products")
-public class Product {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    @Column(nullable = false)
+public class ProductResponse {
+    @NotBlank
     private String name;
-    @Column(nullable = false)
+    @NotBlank
     private String description;
-    @Column(nullable = false)
+    @NotNull
     private Double price;
-    @Column(nullable = false)
+    @NotNull
     private Boolean active;
-    @Column(nullable = false)
+    @NotNull
     private Integer stock;
 
-
-    public Product() {
+    public ProductResponse() {
     }
 
-
-    public Product(Long id, String name, String description, Double price, Boolean active, Integer stock) {
-        this.id = id;
+    public ProductResponse(String name, String description, Double price, Boolean active, Integer stock) {
         this.name = name;
         this.description = description;
         this.price = price;
         this.active = active;
         this.stock = stock;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getName() {
@@ -75,7 +59,7 @@ public class Product {
         this.active = active;
     }
 
-    public int getStock() {
+    public Integer getStock() {
         return stock;
     }
 
