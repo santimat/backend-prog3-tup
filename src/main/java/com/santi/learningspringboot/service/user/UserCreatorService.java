@@ -15,7 +15,6 @@ public class UserCreatorService {
     }
 
     public User create(UserRequest request) {
-
         User newUser = UserMapper.toEntity(request);
         return userRepository.save(newUser);
     }
