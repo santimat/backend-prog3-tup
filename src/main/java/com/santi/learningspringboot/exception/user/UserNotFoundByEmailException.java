@@ -1,4 +1,4 @@
-package com.santi.learningspringboot.service.auth;
+package com.santi.learningspringboot.exception.user;
 
 public class UserNotFoundByEmailException extends RuntimeException {
     public UserNotFoundByEmailException(String email) {

@@ -3,6 +3,7 @@ package com.santi.learningspringboot.service.auth;
 import com.santi.learningspringboot.dto.request.auth.LoginRequest;
 import com.santi.learningspringboot.dto.response.auth.LoginResponse;
 import com.santi.learningspringboot.exception.auth.WrongPasswordException;
+import com.santi.learningspringboot.exception.user.UserNotFoundByEmailException;
 import com.santi.learningspringboot.model.user.User;
 import com.santi.learningspringboot.repository.user.JPAUserRepository;
 import com.santi.learningspringboot.service.jwt.JwtService;

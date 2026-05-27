@@ -25,8 +25,8 @@ public class JwtFilter extends OncePerRequestFilter {
         String path = request.getRequestURI();
         String method = request.getMethod();
 
-        Boolean isLogin = path.startsWith("/api/auth");
-        Boolean isSignIn = path.startsWith("/api/users") && method.equals("POST");
+        boolean isLogin = path.startsWith("/api/auth");
+        boolean isSignIn = path.startsWith("/api/users") && method.equals("POST");
 
         if (isLogin || isSignIn) {
             // skip the JWT validation
@@ -35,7 +35,8 @@ public class JwtFilter extends OncePerRequestFilter {
         }
 
         String authHeader = request.getHeader("Authorization");
-        if (authHeader == null || !authHeader.startsWith("Bearer ")) {
+        boolean isMissingToken = authHeader == null || !authHeader.startsWith("Bearer ");
+        if (isMissingToken) {
             // 401 Unauthorized
             response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
             response.getWriter().write("Access token is required");
